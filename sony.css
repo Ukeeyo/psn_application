@@ -1,0 +1,267 @@
+@font-face {
+  font-family: 'playstation';
+  src: url("playstation.otf") format("opentype");
+}
+
+html, body {
+  font-family: 'playstation', serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
+
+body {
+  background: linear-gradient(135deg, #003791, #00aced, #ffffff);
+}
+
+#container, .content {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  display: table;
+  table-layout: fixed;
+}
+
+.arrows {
+  height: 80px;
+  width: 60px;
+  position: absolute;
+  margin-left: calc(50% - 30px);
+  z-index: 9501;
+  cursor: pointer;
+}
+
+.down {
+  bottom: 0;
+}
+
+.up {
+  transform: rotate(180deg);
+  transform-origin: 50% 50%;
+}
+
+.arrows path {
+  stroke: #2994D1;
+  fill: transparent;
+  stroke-width: 5px;
+  animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+}
+.arrows path.a1 {
+  animation-delay:-1s;
+}
+.arrows path.a2 {
+  animation-delay:-0.5s;
+}
+.arrows path.a3 {
+  animation-delay:0s;
+}
+
+.large-text {
+  font-size: 4em;
+}
+
+.medium-text {
+  font-size: 2em;
+}
+
+#about1 {
+  background-image: url("imgs/playstation.jpg");
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.background-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.overlay {
+  position: absolute;
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 9001;
+}
+
+.slide-in {
+  transition: transform 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden-left {
+  transform: translateX(-100%);
+}
+
+.hidden-right {
+  transform: translateX(100%);
+}
+
+.hidden-top {
+  transform: translateY(-500%);
+}
+
+.hidden-bottom {
+  transform: translateY(500%);
+}
+
+.delay{
+  -webkit-transition-delay: .25s;
+  -o-transition-delay: .25s;
+  transition-delay: .25s;
+}
+
+.row {
+  display: table-row;
+  width: 100%;
+  height: calc(100%/3);
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.left-panel {
+  width: calc(100%/3);
+  position: relative;
+}
+
+.logo-row {
+  height: calc(100%/16);
+}
+
+#logos-container {
+  position: absolute;
+  display: table;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tech-logos {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+.tech-logo-caption {
+  display: inline-block;
+  float: left;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.logo-background {
+  background-color: white;
+  height: 100%;
+  width: 50px;
+  display: inline-block;
+  float: left;
+}
+
+.sub-table {
+  height: 100%;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+.align-bottom {
+  vertical-align: bottom;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.portrait {
+  width: 150px;
+  height: 150px;
+}
+
+#controller {
+  height: 100px;
+  cursor: pointer;
+}
+
+#controller-label {
+  position: absolute;
+}
+
+#tv {
+  height: 100%;
+  width: 100%;
+  z-index: 9001;
+  position: absolute;
+  left: 0;
+}
+
+#screen-background {
+  height: 150px;
+  width: 300px;
+  margin: auto;
+  background-color: black;
+  position: relative;
+}
+
+#screen-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+#monitor {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#keyboard {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.about-text {
+  font-family: 'PT Sans', sans-serif;
+  width: 50%;
+  margin: auto;
+}
+
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);}
+}
