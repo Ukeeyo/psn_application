@@ -30,6 +30,15 @@ function app() {
         content.children[0].children[2].className = "slide-in";
       },
       1: function(){
+        return
+      },
+      2: function(){
+         var logos = document.getElementsByClassName("logo-row");
+        for (var i = 0; i < logos.length; i++) {
+          logos[i].className = "logo-row slide-in";
+        }
+      },
+      3: function(){
         var content = document.getElementById("text-1");
         content.children[0].className = "large-text slide-in";
         content.children[1].className = "slide-in";
@@ -37,21 +46,12 @@ function app() {
         setTimeout(function(){document.getElementById("controller").className = "floating slide-in"}, 500);
         document.getElementById("controller-label").className = "normal-text";
       },
-      2: function(){
-        var logos = document.getElementsByClassName("logo-row");
-        for (var i = 0; i < logos.length; i++) {
-          logos[i].className = "logo-row slide-in";
-        }
-      },
-      3: function(){
-        return;
-      },
       4: function(){
-        return;
+
       },
     },
 
-    // deactivates animated content based on index number of content being scrolled to
+    // Deactivates animated content depending on previous content activated
     deactivateContent: {
       0: function(){
         var content = document.getElementById("home");
@@ -60,11 +60,7 @@ function app() {
         content.children[0].children[2].className = "slide-in hidden-right";
       },
       1: function(){
-        var content = document.getElementById("text-1");
-        content.children[0].className = "large-text slide-in hidden-left";
-        content.children[1].className = "slide-in hidden-right";
-        document.getElementById("controller").className = "slide-in hidden-bottom";
-        document.getElementById("controller-label").className = "fade-out normal-text";
+        return
       },
       2: function(){
         var logos = document.getElementsByClassName("logo-row");
@@ -78,10 +74,14 @@ function app() {
         }
       },
       3: function(){
-        return;
+        var content = document.getElementById("text-1");
+        content.children[0].className = "large-text slide-in hidden-left";
+        content.children[1].className = "slide-in hidden-right";
+        document.getElementById("controller").className = "slide-in hidden-bottom";
+        document.getElementById("controller-label").className = "fade-out normal-text";
       },
      4: function(){
-        return;
+        return
       },
     },
 
