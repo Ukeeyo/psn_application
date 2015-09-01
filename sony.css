@@ -13,16 +13,19 @@ html, body {
 }
 
 body {
+  background: -webkit-linear-gradient(315deg, #003791, #00aced, #ffffff);
   background: linear-gradient(135deg, #003791, #00aced, #ffffff);
 }
 
-#container, .content {
+#container {
   height: 100%;
   width: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .content {
+  height: 102%;
+  width: 100%;
   position: relative;
   overflow: hidden;
   display: table;
@@ -43,31 +46,48 @@ body {
 }
 
 .up {
-  transform: rotate(180deg);
-  transform-origin: 50% 50%;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+          top: 0;
 }
 
 .arrows path {
-  stroke: #2994D1;
+  /*stroke: #2994D1;*/
+  stroke: #ADD8E6;
   fill: transparent;
   stroke-width: 5px;
-  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+          animation: arrow 2s infinite;
+}
+
+@-webkit-keyframes arrow {
+  0% {opacity:0;filter: alpha(opacity=0)}
+  40% {opacity:1;filter: alpha(opacity=100)}
+  80% {opacity:0;filter: alpha(opacity=0)}
+  100% {opacity:0;filter: alpha(opacity=0)}
 }
 
 @keyframes arrow {
-  0% {opacity:0}
-  40% {opacity:1}
-  80% {opacity:0}
-  100% {opacity:0}
+  0% {opacity:0;filter: alpha(opacity=0)}
+  40% {opacity:1;filter: alpha(opacity=100)}
+  80% {opacity:0;filter: alpha(opacity=0)}
+  100% {opacity:0;filter: alpha(opacity=0)}
 }
 .arrows path.a1 {
-  animation-delay:-1s;
+  -webkit-animation-delay:-1s;
+          animation-delay:-1s;
 }
 .arrows path.a2 {
-  animation-delay:-0.5s;
+  -webkit-animation-delay:-0.5s;
+          animation-delay:-0.5s;
 }
 .arrows path.a3 {
-  animation-delay:0s;
+  -webkit-animation-delay:0s;
+          animation-delay:0s;
 }
 
 .large-text {
@@ -82,6 +102,7 @@ body {
   background-image: url("imgs/playstation.jpg");
   background-size: cover;
   opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 
 .background-img {
@@ -89,6 +110,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0.4;
+  filter: alpha(opacity=40);
 }
 
 .overlay {
@@ -101,40 +123,50 @@ body {
 }
 
 .slide-in {
-  transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 
 .fade-out {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 1s ease-in-out;
+          transition: opacity 1s ease-in-out;
 }
 
 .hidden-left {
-  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 .hidden-right {
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .hidden-top {
-  transform: translateY(-500%);
+  -webkit-transform: translateY(-500%);
+      -ms-transform: translateY(-500%);
+          transform: translateY(-500%);
 }
 
 .hidden-bottom {
-  transform: translateY(500%);
+  -webkit-transform: translateY(500%);
+      -ms-transform: translateY(500%);
+          transform: translateY(500%);
 }
 
 .delay{
   -webkit-transition-delay: .25s;
-  -o-transition-delay: .25s;
   transition-delay: .25s;
 }
 
 .row {
   display: table-row;
   width: 100%;
-  height: calc(100%/3);
+  height: 33.33333%;
 }
 
 .cell {
@@ -144,24 +176,23 @@ body {
 }
 
 .left-panel {
-  width: calc(100%/3);
+  width: 33.33333%;
   position: relative;
 }
 
 .logo-row {
-  height: calc(100%/16);
+  height: 12.5%;
 }
 
 #logos-container {
   position: absolute;
-  display: table;
+  display: inline-block;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   height: 100%;
   width: 100%;
-  table-layout: fixed;
 }
 
 .tech-logos {
@@ -247,17 +278,36 @@ body {
   max-width: 100%;
 }
 
+#mug  {
+  position: absolute;
+  max-height: 100%;
+}
+
 .about-text {
   font-family: 'PT Sans', sans-serif;
   width: 50%;
   margin: auto;
 }
 
+.normal-text {
+  font-family: 'PT Sans', sans-serif;
+}
+
 .floating {
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    -webkit-animation-name: floating;
+            animation-name: floating;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes floating {
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);}
 }
 
 @keyframes floating {

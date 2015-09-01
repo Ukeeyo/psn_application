@@ -10,14 +10,12 @@ function app() {
     interval: "none",
     scrollTop: this.container.scrollTop,
     activatedContent: 0,
-    lastScroll: Date.now,
     gifs: ["imgs/shapes.jpg"],
 
     setUp: function() {
       document.getElementById("up-button").addEventListener("click", this.findClosestUp.bind(this));
       document.getElementById("down-button").addEventListener("click", this.findClosestDown.bind(this));
       document.onkeydown = this.checkKey.bind(this);
-      this.container.addEventListener("mousewheel", this.onScroll.bind(this));
       setTimeout(function(){this.activateContent[0]()}.bind(this), 500);
       document.getElementById("controller").addEventListener("click", this.chooseRandomGif.bind(this));
       this.getGifs();
@@ -37,13 +35,19 @@ function app() {
         content.children[1].className = "slide-in";
         document.getElementById("controller").className = "slide-in";
         setTimeout(function(){document.getElementById("controller").className = "floating slide-in"}, 500);
-        document.getElementById("controller-label").className = "";
+        document.getElementById("controller-label").className = "normal-text";
       },
       2: function(){
         var logos = document.getElementsByClassName("logo-row");
         for (var i = 0; i < logos.length; i++) {
           logos[i].className = "logo-row slide-in";
         }
+      },
+      3: function(){
+        return;
+      },
+      4: function(){
+        return;
       },
     },
 
@@ -60,7 +64,7 @@ function app() {
         content.children[0].className = "large-text slide-in hidden-left";
         content.children[1].className = "slide-in hidden-right";
         document.getElementById("controller").className = "slide-in hidden-bottom";
-        document.getElementById("controller-label").className = "fade-out";
+        document.getElementById("controller-label").className = "fade-out normal-text";
       },
       2: function(){
         var logos = document.getElementsByClassName("logo-row");
@@ -72,6 +76,12 @@ function app() {
             logos[i].className = "logo-row hidden-bottom slide-in";
           }
         }
+      },
+      3: function(){
+        return;
+      },
+     4: function(){
+        return;
       },
     },
 
@@ -107,7 +117,7 @@ function app() {
    chooseRandomGif: function(){
     var gif = this.gifs[Math.floor(Math.random()*this.gifs.length)];
     document.getElementById("screen-image").src = gif;
-    document.getElementById("controller-label").className = "fade-out";
+    document.getElementById("controller-label").className = "fade-out normal-text";
    },
 
     // Scrolls to next/previous content when up/down arrows are pushed on the keyboard
@@ -120,22 +130,6 @@ function app() {
        this.findClosestDown();
      }
    },
-
-   // determines whether user scrolled up or down, then activates scroll animation accordingly
-   onScroll: function(e){
-    var scroll = this.container.scrollTop;
-    if(this.scrolling || scroll === this.scrollTop || Date.now() < this.lastScroll + 100){
-      return;
-    }else if(scroll > this.scrollTop) {
-      console.log("down");
-      setTimeout(this.findClosestDown(), 1000);
-    }else{
-      console.log("up");
-      setTimeout(this.findClosestUp(), 1000);
-    }
-    this.lastScroll = Date.now();
-    this.scrollTop = scroll;
-  },
 
    // finds the top of the content object which is closest to current location and redirects the scroll to fit the content box within the browser window
    findClosest: function() {
