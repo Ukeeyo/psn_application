@@ -1,6 +1,5 @@
-# psn_application
-A page build for my application to the sony playstation network
+# PSN_Application
 
-Built with vanillia JavaScript, HTML5, CSS3. 
-Utilized a GIF search engine API to randomly generate GIFs
-JavaScript was used to create autoscrolling function
+This is an interactive web app that I used as my application to PlayStation. It has a lot of fun animations.
+
+![screenshot]('screenshot.png')
